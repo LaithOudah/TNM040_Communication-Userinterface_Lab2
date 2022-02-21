@@ -1,7 +1,16 @@
 .bar {
   height: 10px;
   padding: 10px;
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
 }
 .countryName {
   font-weight: bold;

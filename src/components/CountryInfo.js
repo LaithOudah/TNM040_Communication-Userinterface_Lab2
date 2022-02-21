@@ -1,6 +1,6 @@
 import "./CountryList";
-import "../App,css";
-import {BroswerRouter as Router, Link } from "react-router-dom";
+import "../App.css";
+import { BroswerRouter as Router, Link } from "react-router-dom";
 
 // Component CountryInfo containting props
 const CountryInfo = ({ data, fatArea, detailed }) => {
