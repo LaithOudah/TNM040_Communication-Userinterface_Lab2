@@ -8,15 +8,16 @@ import CountryDetails from "./components/CountryDetails";
 
 import {
   BroswerRouter as Router,
-  Switch, Rotue, Link, useParams,
+  Switch,
+  Rotue,
+  Link,
+  useParams,
 } from "react-router-dom";
 
 export default function App() {
   <Rounter>
     <div>
       <nav></nav>
-
-
     </div>
-  </Rounter>
+  </Rounter>;
 }
