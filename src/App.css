@@ -21,3 +21,12 @@
   flex: 1;
   padding: 0.5em;
 }
+.outerBox {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.buttonFix {
+  width: 100%;
+  border: transparent;
+}

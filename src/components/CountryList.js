@@ -1,39 +1,29 @@
-import React, { useState } from "react";
 import countries from "world-countries";
 import CountryInfo from "./CountryInfo";
+
+import React, { useState } from "react";
 
 function CountryList() {
   const [searchString, setSearchString] = useState("");
 
-  let tempHolder = countries.sort((a, b) => b.area - a.area);
+  let temp = countries.sort((a, b) => b.area - a.area);
 
-  tempHolder = tempHolder.filter(
-    (argValue) => argValue.name.common !== "Antarctica"
-  );
+  temp = temp.filter((arg) => arg.name.common !== "Antarctica");
 
-  const foundSearch = (country) => {
-    const toSmallName = country.name.common.toLowerCase();
-    const toSmallNameSearch = searchString.toLowerCase();
+  const matchSearch = (country) => {
+    const lowerCountryName = country.name.common.toLowerCase();
+    const lowerCaseSearchString = searchString.toLowerCase();
 
-    return toSmallName.indexOf(toSmallNameSearch) === 0;
+    // What is the '0' representing? What happens if you change it to '1'?
+    return lowerCountryName.indexOf(lowerCaseSearchString) === 0;
   };
+  const filteredCountries = temp.filter(matchSearch).slice(0, 5);
 
-  const filteredCountries = tempHolder.filter(foundSearch).slice(0, 5);
-
-  const CountryList = filteredCountries.map(
-    (tempHolder,
-    (index) => {
-      <ul>
-        return (
-        <CountryInfo
-          key={tempHolder.ccn3}
-          data={tempHolder}
-          fatArea={countries[0].area}
-        />
-        );
-      </ul>;
-    })
-  );
+  const countryList = filteredCountries.map((temp) => {
+    return (
+      <CountryInfo key={temp.ccn3} data={temp} bigArea={countries[0].area} />
+    );
+  });
 
   function showInput(event) {
     setSearchString(event.target.value);
@@ -41,10 +31,10 @@ function CountryList() {
 
   return (
     <div>
-      <input type="text" placeholder="Skriv här..." onChange={showInput} />
-      <div>{CountryList}</div>
+      <input type="text" placeholder="Type here..." onChange={showInput} />
+
+      <div>{countryList}</div>
     </div>
   );
 }
-
 export default CountryList;
